@@ -45,7 +45,7 @@ func newTaskDownloadCommand(config *setting.Config) *cobra.Command {
 
 			fetcher := client.NewTokenClient(v.GetString("master"), v.GetString("apikey"), config)
 			fetcher.SetActiveReport(true)
-			if err := fetcher.DownloadArtefactsFromTask(id, target); err != nil {
+			if err := fetcher.DownloadArtefactsFromTask(id, target, []string{}); err != nil {
 				log.Fatalln(err)
 			}
 		},

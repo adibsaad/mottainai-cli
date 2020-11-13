@@ -45,7 +45,7 @@ func newNamespaceDownloadCommand(config *setting.Config) *cobra.Command {
 				log.Fatalln("You need to define a namespace and a target")
 			}
 
-			if err := fetcher.DownloadArtefactsFromNamespace(ns, target); err != nil {
+			if err := fetcher.DownloadArtefactsFromNamespace(ns, target, []string{}); err != nil {
 				log.Fatalln(err)
 			}
 		},
