@@ -46,6 +46,7 @@ func SupportedExecutors(config *setting.Config) *TaskHandler {
 
 	}
 	se["error"] = HandleErr(config)
+	se["success"] = NoOP(config)
 
 	return &TaskHandler{Tasks: se, Config: config}
 }
@@ -66,8 +67,8 @@ func GenDefaultTaskHandler(config *setting.Config) *TaskHandler {
 		"virtualbox_execute": VirtualBoxPlayer(config),
 		"virtualbox_vagrant": VirtualBoxPlayer(config),
 
-		"error": HandleErr(config),
-		//	"success":        HandleSuccess,
+		"error":   HandleErr(config),
+		"success": NoOP(config),
 	},
 		Config: config,
 	}

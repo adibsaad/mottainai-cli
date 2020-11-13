@@ -10,11 +10,14 @@ import (
 
 var (
 	defaultConfig = &config.RedisConfig{
-		MaxIdle:                3,
-		IdleTimeout:            240,
+		MaxIdle:                10,
+		MaxActive:              100,
+		IdleTimeout:            300,
+		Wait:                   true,
 		ReadTimeout:            15,
 		WriteTimeout:           15,
 		ConnectTimeout:         15,
+		NormalTasksPollPeriod:  1000,
 		DelayedTasksPollPeriod: 20,
 	}
 )
